@@ -1,7 +1,11 @@
 import whop
 import pygsheets
 import pandas as pd
-gc = pygsheets.authorize(service_file='gold-378922-99c5daa27a7e.json')
+from dotenv import load_dotenv
+import os
+load_dotenv()
+JSONFILE = os.getenv('JSONFILE')
+gc = pygsheets.authorize(service_file=JSONFILE)
 users = whop.accounts()
 payments = whop.payments()
 walletList = whop.walletListDiscords()
